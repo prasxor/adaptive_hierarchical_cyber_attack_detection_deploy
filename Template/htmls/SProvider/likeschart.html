@@ -1,0 +1,63 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<div class="max-w-7xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+        
+        <div class="bg-indigo-50 px-6 py-5 border-b border-indigo-100 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+                <h2 class="text-xl font-bold text-indigo-900">Cyber Datasets Accuracy in Bar Graph</h2>
+                <p class="text-sm text-indigo-700 mt-1">Visualizing trained accuracy using range graphs.</p>
+            </div>
+        </div>
+
+        <div class="p-4 sm:p-8 bg-gray-50" style="min-height: 500px;">
+            <div class="bg-white rounded-lg p-4 shadow-inner border border-gray-200">
+                <div id="chartContainer" style="height: 400px; width: 100%;"></div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+window.onload = function() {
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        theme: "light2",
+        title: {
+            text: "Model Accuracy",
+            fontFamily: "Inter, sans-serif",
+            fontSize: 20
+        },
+        data: [{
+        {% if chart_type == "rangeSplineArea" %}
+            type: "rangeSplineArea",
+            color: "#6366f1",
+        {% elif chart_type == "pie" %}
+            type: "pie",
+        {% elif chart_type == "spline" %}
+            type: "spline",
+        {% elif chart_type == "bar" %}
+            type: "column",
+            color: "#6366f1",
+        {% else %}
+            type: "column",
+            color: "#3b82f6",
+        {% endif %}
+            startAngle: 240,
+            yValueFormatString: "##0.00\"%\"",
+            indexLabel: "{label} {y}",
+            dataPoints: [
+            {% for o in form %}
+                {y: {{o.dcount}}, label: "{{o.names}}"},
+            {% endfor %}
+            ]
+        }]
+    });
+    chart.render();
+}
+</script>
+
+{% endblock %}

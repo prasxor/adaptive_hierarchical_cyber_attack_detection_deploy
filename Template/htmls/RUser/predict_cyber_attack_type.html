@@ -1,0 +1,118 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+<div class="max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    
+    <!-- Prediction Form Section -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 mb-8">
+        <div class="bg-indigo-50 px-6 py-5 border-b border-indigo-100 flex items-center justify-between">
+            <div>
+                <h2 class="text-xl font-bold text-indigo-900">Predict Cyber Attack Type</h2>
+                <p class="text-sm text-indigo-700 mt-1">Enter dataset details below to classify the attack type.</p>
+            </div>
+            <div class="hidden sm:block">
+                <span class="inline-flex items-center justify-center h-10 w-10 rounded-full bg-indigo-200 text-indigo-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </span>
+            </div>
+        </div>
+
+        <form role="form" method="POST" class="p-6 sm:p-8">
+            {% csrf_token %}
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Row 1 -->
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">ID Number</label>
+                    <input type="text" name="idnumber" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Datetime</label>
+                    <input type="text" name="datetime" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Host</label>
+                    <input type="text" name="host" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">RID</label>
+                    <input type="text" name="RID" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+
+                <!-- Row 2 -->
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Proto</label>
+                    <input type="text" name="proto" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">SPT (Source Port)</label>
+                    <input type="text" name="spt" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">DTP (Dest Port)</label>
+                    <input type="text" name="dtp" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">IP Address</label>
+                    <input type="text" name="ipaddress" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+
+                <!-- Row 3 -->
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">CC</label>
+                    <input type="text" name="cc" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Country</label>
+                    <input type="text" name="country" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Locale</label>
+                    <input type="text" name="locale" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Latitude</label>
+                    <input type="text" name="latitude" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+
+                <!-- Row 4 -->
+                <div class="lg:col-span-1">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Longitude</label>
+                    <input type="text" name="longitude" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+                <div class="lg:col-span-2">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">Sources</label>
+                    <input type="text" name="Sources" class="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 bg-gray-50 focus:bg-white transition-colors">
+                </div>
+            </div>
+            
+            <div class="mt-8 flex justify-end">
+                <input name="submit" type="submit" value="Predict Attack Type" 
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-md shadow-sm hover:shadow-md transition-all cursor-pointer">
+            </div>
+        </form>
+    </div>
+
+    <!-- Prediction Result Section -->
+    <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100">
+        <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
+            <h3 class="text-lg font-bold text-gray-900">Prediction Result</h3>
+        </div>
+        <div class="p-6 flex flex-col items-center justify-center min-h-[160px]">
+            <span class="text-sm uppercase tracking-wider font-semibold text-gray-500 mb-2">Detected Threat Level</span>
+            
+            {% if objs %}
+            <div class="px-6 py-3 bg-red-50 border-2 border-red-500 rounded-lg shadow-sm">
+                <span class="text-3xl font-black text-red-600 tracking-tight flex items-center gap-3">
+                    <svg class="w-8 h-8 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
+                    {{objs}}
+                </span>
+            </div>
+            {% else %}
+            <div class="text-gray-400 text-lg font-medium italic">
+                Awaiting input data...
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

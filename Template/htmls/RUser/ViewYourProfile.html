@@ -1,0 +1,96 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+
+<div class="max-w-4xl mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    
+    <div class="bg-white shadow-lg sm:rounded-xl overflow-hidden border border-gray-100">
+        <div class="bg-indigo-50 px-6 py-6 border-b border-indigo-100 flex items-center space-x-4">
+            <div class="h-16 w-16 bg-white rounded-full shadow-sm flex items-center justify-center border-2 border-indigo-200">
+                <span class="text-2xl font-bold text-indigo-700">{{ object.username.0|upper }}</span>
+            </div>
+            <div>
+                <h3 class="text-2xl leading-6 font-bold text-indigo-900">User Profile</h3>
+                <p class="mt-1 max-w-2xl text-sm text-indigo-700 font-medium">Personal details and registration information.</p>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-200 px-4 py-5 sm:p-0">
+            <dl class="sm:divide-y sm:divide-gray-200">
+                
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 hover:bg-gray-50 transition-colors">
+                    <dt class="text-sm font-semibold text-gray-500 flex items-center gap-2">
+                        Username
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-medium">
+                        {{object.username}}
+                    </dd>
+                </div>
+                
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 hover:bg-gray-50 transition-colors">
+                    <dt class="text-sm font-semibold text-gray-500">
+                        Email Address
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-medium">
+                        {{object.email}}
+                    </dd>
+                </div>
+                
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 hover:bg-gray-50 transition-colors">
+                    <dt class="text-sm font-semibold text-gray-500">
+                        Mobile Number
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-medium">
+                        {{object.phoneno}}
+                    </dd>
+                </div>
+                
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 hover:bg-gray-50 transition-colors">
+                    <dt class="text-sm font-semibold text-gray-500">
+                        Gender
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-medium">
+                        {{object.gender}}
+                    </dd>
+                </div>
+                
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 bg-gray-50 sm:bg-transparent hover:bg-gray-50 transition-colors">
+                    <dt class="text-sm font-semibold text-gray-500">
+                        Address
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-medium">
+                        {{object.address}}
+                    </dd>
+                </div>
+                
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 hover:bg-gray-50 transition-colors">
+                    <dt class="text-sm font-semibold text-gray-500">
+                        City
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-medium">
+                        {{object.city}}
+                    </dd>
+                </div>
+                
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 hover:bg-gray-50 transition-colors">
+                    <dt class="text-sm font-semibold text-gray-500">
+                        State
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-medium">
+                        {{object.state}}
+                    </dd>
+                </div>
+                
+                <div class="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6 hover:bg-gray-50 transition-colors">
+                    <dt class="text-sm font-semibold text-gray-500">
+                        Country
+                    </dt>
+                    <dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 font-medium">
+                        {{object.country}}
+                    </dd>
+                </div>
+                
+            </dl>
+        </div>
+    </div>
+</div>
+{% endblock %}

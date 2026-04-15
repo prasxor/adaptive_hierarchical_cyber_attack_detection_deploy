@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9',
+                            900: '#4c1d95',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <h1 class="text-2xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-indigo-600 text-center tracking-tight">
+                Adaptive Hierarchical Cyber Attack Detection and Localization in Active Distribution Systems
+            </h1>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-brand-900 shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center space-x-1 sm:space-x-2 py-3 overflow-x-auto text-xs sm:text-sm">
+                <!-- <a href="{% url 'Train_Test_DataSets' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium text-brand-50 hover:bg-brand-700 hover:text-white transition-colors duration-200">
+                    Train & Test Data
+                </a> -->
+                <a href="{% url 'likeschart' 'bar' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium text-brand-50 hover:bg-brand-700 hover:text-white transition-colors duration-200">
+                    Accuracy (Bar)
+                </a>
+                <a href="{% url 'charts1' 'line' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium text-brand-50 hover:bg-brand-700 hover:text-white transition-colors duration-200">
+                    Accuracy (Line)
+                </a>
+                <a href="{% url 'View_Prediction_Of_Cyber_Attack_Type' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium text-brand-50 hover:bg-brand-700 hover:text-white transition-colors duration-200">
+                    View Predictions
+                </a>
+                <a href="{% url 'View_Prediction_Of_Cyber_Attack_Type_Ratio' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium text-brand-50 hover:bg-brand-700 hover:text-white transition-colors duration-200">
+                    Prediction Ratio
+                </a>
+                <a href="{% url 'Download_Trained_DataSets' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium text-brand-50 hover:bg-brand-700 hover:text-white transition-colors duration-200">
+                    Download Data
+                </a>
+                <a href="{% url 'charts' 'line' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium text-brand-50 hover:bg-brand-700 hover:text-white transition-colors duration-200">
+                    Attack Ratio Trends
+                </a>
+                <a href="{% url 'View_Remote_Users' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium text-brand-50 hover:bg-brand-700 hover:text-white transition-colors duration-200">
+                    View Users
+                </a>
+                <a href="{% url 'login' %}" class="whitespace-nowrap px-3 py-2 rounded-md font-medium bg-red-600 text-white hover:bg-red-700 transition-colors duration-200 shadow-sm ml-2">
+                    Logout
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow w-full">
+        {% block researchblock %}
+        {% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 flex justify-center text-sm text-gray-500">
+            &copy; 2025 Cyber Attack Detection System. Service Provider View. All rights reserved.
+        </div>
+    </footer>
+
+</body>
+</html>

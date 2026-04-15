@@ -1,0 +1,1 @@
+web: gunicorn adaptive_hierarchical_cyber_attack_detection.wsgi

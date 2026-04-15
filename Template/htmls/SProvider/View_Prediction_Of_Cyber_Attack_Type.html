@@ -1,0 +1,66 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<div class="max-w-full mx-auto py-10 px-4 sm:px-6 lg:px-8">
+    <div class="sm:flex sm:items-center">
+        <div class="sm:flex-auto">
+            <h2 class="text-2xl font-bold text-gray-900">Prediction of Cyber Attack Types</h2>
+            <p class="mt-2 text-sm text-gray-700">Detailed logs of detected network anomalies and final predictions.</p>
+        </div>
+    </div>
+    
+    <div class="mt-8 flex flex-col">
+        <div class="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
+                <div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 md:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-300">
+                        <thead class="bg-indigo-600">
+                            <tr>
+                                <th scope="col" class="py-3.5 pl-4 pr-3 text-left text-xs font-semibold text-white sm:pl-6 uppercase tracking-wider">Datetime</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Host</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">RID</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Proto</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">SPT</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">DTP</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">IP Address</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">CC</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Country</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Locale</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Lat</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Long</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-semibold text-white uppercase tracking-wider">Sources</th>
+                                <th scope="col" class="px-2 py-3.5 text-left text-xs font-bold text-yellow-300 uppercase tracking-wider">Prediction</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 bg-white">
+                            {% for object in list_objects %}
+                            <tr class="hover:bg-red-50 transition-colors">
+                                <td class="whitespace-nowrap py-3 pl-4 pr-3 text-xs text-gray-900 sm:pl-6">{{object.datetime}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.host}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.RID}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.proto}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.spt}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.dtp}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500 font-mono">{{object.ipaddress}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.cc}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.country}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.locale}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.latitude}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500">{{object.longitude}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-xs text-gray-500 max-w-xs truncate" title="{{object.Sources}}">{{object.Sources}}</td>
+                                <td class="whitespace-nowrap px-2 py-3 text-sm font-bold text-red-600">{{object.Prediction}}</td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="14" class="px-3 py-8 text-center text-sm text-gray-500">No predictions found in the database.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
