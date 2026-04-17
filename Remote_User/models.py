@@ -12,8 +12,8 @@ class ClientRegister_Model(models.Model):
     country = models.CharField(max_length=30)
     state = models.CharField(max_length=30)
     city = models.CharField(max_length=30)
-    address= models.CharField(max_length=3000)
-    gender= models.CharField(max_length=30)
+    address = models.CharField(max_length=3000, default="NA")
+    gender = models.CharField(max_length=30, default="NotSpecified")
 
 class cyber_attack_detection_type(models.Model):
 

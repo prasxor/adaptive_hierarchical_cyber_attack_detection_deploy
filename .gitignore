@@ -1,0 +1,48 @@
+Python
+
+pycache/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+Virtual Environment
+
+venv/
+env/
+ENV/
+
+Django
+
+*.log
+db.sqlite3
+/media
+/staticfiles
+
+Environment variables
+
+.env
+
+macOS
+
+.DS_Store
+
+VS Code
+
+.vscode/
+
+PyCharm
+
+.idea/
+
+Migrations (optional - keep if needed)
+
+*/migrations/
+
+!*/migrations/init.py
+
+Build
+
+build/
+dist/
+*.egg-info/
